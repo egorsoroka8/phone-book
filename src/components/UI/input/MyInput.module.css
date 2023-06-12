@@ -1,4 +1,4 @@
-.select {
+.myInput {
     position: relative;
     display: inline-block;
     width: 250px;
@@ -11,18 +11,7 @@
     margin: 10px;
 }
 
-.select:focus {
+.myInput:focus {
     outline: none;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
 }
-
-.option {
-    padding: 8px;
-    cursor: pointer;
-    /* Add any other styles you want for the option */
-  }
-  
-  .option:hover {
-    background-color: #f0f0f0;
-    /* Add hover styles for the option */
-  }
