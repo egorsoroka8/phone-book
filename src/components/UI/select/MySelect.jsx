@@ -9,12 +9,11 @@ const MySelect = ({ props, onChange, value }) => {
             onChange={onChange}
             value={value}
         >
-            {props.map((el, index) =>
+            {props.map((el) =>
                 <option
                     className={classes.option}
                     key={el.countryCode}
                     value={el.phoneCode}
-                    defaultValue={index === 0}
                 >
                     {el.phoneCode} {el.countryName} {el.countryCode}
                 </option>

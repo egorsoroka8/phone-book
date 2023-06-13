@@ -4,20 +4,16 @@ import MyButton from "./components/UI/button/MyButton";
 import MyInput from "./components/UI/input/MyInput";
 import MyMessage from "./components/UI/message/MyMessage";
 import './components/styles/App.css'
-import useCountryArr from "./hooks/useCountryArr";
+import sortCountries from "./utils/sortCountries";
+import useButtonEnable from "./hooks/useValidation";
 
 
 function App() {
-  const countries = useCountryArr();
+  const countries = sortCountries();
 
-  const [code, setCode] = useState('');
+  const [code, setCode] = useState(countries[0].phoneCode);
   const [phone, setPhone] = useState('');
-
-  const addNewPhone = () => {
-    console.log(code)
-  }
-
-
+  
   return (
     <div className="App">
       <h1 style={{ marginTop: 20 }}>Add Number</h1>
@@ -33,17 +29,12 @@ function App() {
         value={phone}
       />
       <MyMessage />
-      <MyButton onClick={addNewPhone}>Submit</MyButton>
+      <MyButton 
+        onClick={console.log(code + phone)}
+      >Submit
+      </MyButton>
     </div>
   );
 }
 
 export default App;
-
-  // const makeFullNumber = (e) => {
-  //   e.preventDefault();
-  //   const fullNumber = {
-  //     code,
-  //     phone
-  //   }
-  // }
