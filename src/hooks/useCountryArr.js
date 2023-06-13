@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { countries } from "../countries";
 
-const usePhoneCodes = () => {
-    const [phoneCode, setPhoneCode] = useState([]);
+const useCountryArr = () => {
+    const [countryArr, setCountryArr] = useState([]);
             
     useEffect(() => {
         const checkRussia = countries.find(el => el.countryCode === 'RU');
@@ -10,9 +10,9 @@ const usePhoneCodes = () => {
             ? [checkRussia, ...countries.filter(el => el.countryCode !== 'RU')] // если Россия содержится в массиве, то она добавляется на первое место
             : countries; 
 
-        setPhoneCode(updatedCountryArr);
+        setCountryArr(updatedCountryArr);
     }, []);
-    return phoneCode;
+    return countryArr;
 };
 
-export default usePhoneCodes;
+export default useCountryArr;
