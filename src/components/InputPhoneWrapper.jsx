@@ -8,7 +8,7 @@ import sortCountries from "../utils/sortCountries";
 
 const InputPhoneWrapper = () => {
 
-    const countries = sortCountries();
+    const countries = sortCountries(); // возвращает сортированный массив стран (проверяет что первая страна Россия)
 
     const [code, setCode] = useState(countries[0].phoneCode);
     const [phone, setPhone] = useState('');
@@ -17,8 +17,8 @@ const InputPhoneWrapper = () => {
 
     const handlePhoneChange = (e) => {
         let inputValue = e.target.value;
-        inputValue = inputValue.replace(/\D/g, ''); // Remove non-digit characters
-        inputValue = inputValue.slice(0, 10); // Limit to 10 digits
+        inputValue = inputValue.replace(/\D/g, ''); // удаляет все не цифры
+        inputValue = inputValue.slice(0, 10); // устанавливает максимальный лимит по длине номера
         setPhone(inputValue);
 
         const isValid = inputValue.length >= 3 && inputValue.length <= 10;
@@ -30,8 +30,8 @@ const InputPhoneWrapper = () => {
     };
 
     return (
-        <div>
-            <h1 style={{ marginTop: 20 }}>Add Number</h1>
+        <div className="InputWrapper">
+            <h1>Add Number</h1>
             <MySelect
                 props={countries}
                 onChange={e => setCode(e.target.value)}

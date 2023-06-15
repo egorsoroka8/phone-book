@@ -12,9 +12,17 @@
 
 .App {
     display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.InputWrapper {
+    display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0;
-    padding: 0;
+    padding: 20px;
     box-sizing: border-box;
+    border: 2px solid teal;
+    border-radius: 8px;
+    margin: 20px;
   }

@@ -7,6 +7,7 @@ function App() {
   return (
     <div className="App">
       <InputPhoneWrapper />
+      <div>Hello</div>
     </div>
   );
 }
