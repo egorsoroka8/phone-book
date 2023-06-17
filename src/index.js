@@ -17,9 +17,7 @@ const reducer = (state = defaultState, action) => {
         phones: [...state.phones, action.payload],
       };
     case 'GET_PHONES':
-      return {
-        ...state
-      };
+      return state
     default:
       return state;
   }

@@ -10,24 +10,16 @@ import { useDispatch, useSelector } from "react-redux";
 const InputPhoneWrapper = () => {
 
     const dispatch = useDispatch();
-    const phones = useSelector(state => state)
-    console.log(phones)
-
+    const phones = useSelector(state => state);
     const countries = sortCountries(); // возвращает сортированный массив стран (проверяет что первая страна Россия)
-
     const [code, setCode] = useState(countries[0].phoneCode);
     const [phone, setPhone] = useState('');
-    const [isNumberValid, setNumberValid] = useState(false);
+    const isNumberValid = phone.length >= 3 && phone.length <= 10;
 
 
     const handlePhoneChange = (e) => {
-        let inputValue = e.target.value;
-        inputValue = inputValue.replace(/\D/g, ''); // удаляет все не цифры
-        inputValue = inputValue.slice(0, 10); // устанавливает максимальный лимит по длине номера
+        const inputValue = e.target.value.replace(/\D/g, '').slice(0, 10) // оставляет только цифры и устанавливает максимальную длину в 10 цифр
         setPhone(inputValue);
-
-        const isValid = inputValue.length >= 3 && inputValue.length <= 10;
-        setNumberValid(isValid);
     };
 
     const addPhone = () => {
