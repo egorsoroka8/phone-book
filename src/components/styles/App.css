@@ -8,21 +8,43 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    background: #d6e5f5;
+    border-radius: 24px;
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 600px;
 }
 
 .App {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
+
 }
 
 .InputWrapper {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     padding: 20px;
     box-sizing: border-box;
-    border: 2px solid teal;
     border-radius: 8px;
     margin: 20px;
+    background: rgba(5,107,205,.16);
+    box-shadow: 0 4px 8px 0 #50578f7a;
   }
+
+  .PhoneList {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    width: 700px;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    font-size: 18px;
+    box-shadow: 0 4px 8px 0 #50578f7a;
+  }
+
+  

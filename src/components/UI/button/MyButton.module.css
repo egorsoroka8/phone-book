@@ -1,7 +1,7 @@
 .myButton {
     position: relative;
     display: inline-block;
-    width: 250px;
+    width: 200px;
     padding: 8px;
     font-size: 16px;
     border: 1px solid #ccc;
@@ -9,9 +9,13 @@
     background-color: #fff;
     cursor: pointer;
     margin: 10px;
+    height: 40px;
 }
 
 .myButton:focus {
     outline: none;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
 }
+
+
+

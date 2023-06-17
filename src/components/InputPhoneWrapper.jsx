@@ -14,6 +14,8 @@ const InputPhoneWrapper = () => {
   const [phone, setPhone] = useState("");
   const isNumberValid = phone.length >= 3 && phone.length <= 10;
 
+//   const [message, setMessage] = useState("");
+
   const handlePhoneChange = (e) => {
     const inputValue = e.target.value.replace(/\D/g, "").slice(0, 10); // оставляет только цифры и устанавливает максимальную длину в 10 цифр
     setPhone(inputValue);
@@ -22,11 +24,12 @@ const InputPhoneWrapper = () => {
   const addPhone = () => {
     dispatch({ type: "ADD_PHONE", payload: code + phone });
     setPhone("");
+    // setMessage(isNumberValid ? "Number is added" : "Error");
+    // console.log(message);
   };
 
   return (
     <div className="InputWrapper">
-      <h1>Add Number</h1>
       <MySelect
         props={countries}
         onChange={(e) => setCode(e.target.value)}
@@ -38,7 +41,7 @@ const InputPhoneWrapper = () => {
         onChange={handlePhoneChange}
         value={phone}
       />
-      <MyMessage />
+      {/* <MyMessage onChange={message}>{message}</MyMessage> */}
       <MyButton disabled={!isNumberValid} onClick={addPhone}>
         Submit
       </MyButton>

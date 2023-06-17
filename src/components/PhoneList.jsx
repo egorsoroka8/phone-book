@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import MyButton from "./UI/button/MyButton";
+import './styles/App.css'
 
 const PhoneList = () => {
   const dispatch = useDispatch();
@@ -12,9 +13,9 @@ const PhoneList = () => {
 //   };
 
   return (
-    <div>
+    <div className="PhoneList">
       {phones.map((phone, index) => (
-        <div key={index}>{phone}</div>
+        <div key={index}>{index + 1} {phone}</div>
       ))}
       {/* <MyButton onClick={getPhones}>Submit</MyButton> */}
     </div>
