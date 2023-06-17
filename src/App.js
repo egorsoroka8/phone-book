@@ -1,5 +1,6 @@
 import React from "react";
 import InputPhoneWrapper from "./components/InputPhoneWrapper";
+import PhoneList from "./components/PhoneList";
 
 
 function App() {
@@ -7,7 +8,7 @@ function App() {
   return (
     <div className="App">
       <InputPhoneWrapper />
-      <div>Hello</div>
+      <PhoneList />
     </div>
   );
 }
