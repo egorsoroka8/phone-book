@@ -5,8 +5,13 @@ import MyInput from "./UI/input/MyInput";
 import MyMessage from "./UI/message/MyMessage";
 import './styles/App.css'
 import sortCountries from "../utils/sortCountries";
+import { useDispatch, useSelector } from "react-redux";
 
 const InputPhoneWrapper = () => {
+
+    const dispatch = useDispatch();
+    const phones = useSelector(state => state)
+    console.log(phones)
 
     const countries = sortCountries(); // возвращает сортированный массив стран (проверяет что первая страна Россия)
 
@@ -25,8 +30,8 @@ const InputPhoneWrapper = () => {
         setNumberValid(isValid);
     };
 
-    const handleSubmit = () => {
-        console.log(code + phone);
+    const addPhone = () => {
+        dispatch({type: 'ADD_PHONE', payload : code + phone})
     };
 
     return (
@@ -46,7 +51,7 @@ const InputPhoneWrapper = () => {
             <MyMessage />
             <MyButton
                 disabled={!isNumberValid}
-                onClick={handleSubmit}
+                onClick={addPhone}
             >Submit
             </MyButton>
         </div>
