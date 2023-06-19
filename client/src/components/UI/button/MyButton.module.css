@@ -6,11 +6,23 @@
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 8px;
-    background-color: #fff;
+    background-color: #056bcd;
+    color: white;
     cursor: pointer;
     margin: 10px;
     height: 40px;
 }
+
+.myButton:disabled {
+  border: 1px solid #999999;
+  background-color: rgba(0, 8, 66, 0.05);
+  color: rgba(0, 0, 0, 0.26);
+  cursor: default;
+  pointer-events: none;
+}
+.myButton:hover {
+    background-color: #2477c5;
+  }
 
 .myButton:focus {
     outline: none;
