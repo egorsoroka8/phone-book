@@ -9,13 +9,13 @@ const MySelect = ({ props, onChange, value }) => {
             onChange={onChange}
             value={value}
         >
-            {props.map((el) =>
+            {props.map((country) =>
                 <option
                     className={classes.option}
-                    key={el.countryFlag}
-                    value={el.phoneCode}
+                    key={country.countryName}
+                    value={country.phoneCode}
                 >
-                    {el.phoneCode} {el.countryName} {el.countryFlag}
+                    {country.phoneCode} {country.countryName} {country.countryFlag}
                 </option>
             )}
         </select>

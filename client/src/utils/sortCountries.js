@@ -1,14 +1,16 @@
-import { countries } from "../countries";
+import countriesData from '../config.default.json'
 
 const sortCountries = () => {
-    const checkRussia = countries.find(el => el.countryFlag === 'RU');
+    const checkRussia = countriesData.find(el => el.countryFlag === 'RU');
         const updatedCountryArr = checkRussia // на случай если России нет в массиве, и будет возвращен undefined
-            ? [checkRussia, ...countries.filter(el => el.countryFlag !== 'RU')] // если Россия содержится в массиве, то она добавляется на первое место
-            : countries;
+            ? [checkRussia, ...countriesData.filter(el => el.countryFlag !== 'RU')] // если Россия содержится в массиве, то она добавляется на первое место
+            : countriesData;
 
     return updatedCountryArr;
 };
 
-export default sortCountries;
+const countries = sortCountries();
+
+export default countries;
 
 
