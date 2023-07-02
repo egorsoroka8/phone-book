@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import "./styles/App.css";
 
 const PhoneList = () => {
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
     const { phones } = useSelector((state) => state);
     const isPhonesAdded = phones.length ? "Added phones" : "No added phones";
 

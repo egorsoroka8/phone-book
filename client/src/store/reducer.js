@@ -1,5 +1,8 @@
-import { ADD_PHONE, GET_PHONES, REMOVE_PHONE } from './actions';
 import defaultState from './defaultState';
+
+const ADD_PHONE = 'ADD_PHONE';
+const GET_PHONES = 'GET_PHONES';
+const REMOVE_PHONE = 'REMOVE_PHONE';
 
 const reducer = (state = defaultState, action) => {
     switch (action.type) {
