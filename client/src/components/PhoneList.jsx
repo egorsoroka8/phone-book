@@ -1,11 +1,10 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import "./styles/App.css";
 
 const PhoneList = () => {
-    // const dispatch = useDispatch();
     const { phones } = useSelector((state) => state);
-    const isPhonesAdded = phones.length ? "Added phones" : "No added phones";
+    const isPhonesAdded = phones.length ? "Phone list" : "No added phones";
 
     return (
         <div className="PhoneList">

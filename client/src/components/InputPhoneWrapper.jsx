@@ -40,7 +40,7 @@ const InputPhoneWrapper = () => {
             <MyButton disabled={!isNumberValid} onClick={() => dispatch(addPhone(code, phone))}>
                 Submit
             </MyButton>
-            <MyButton disabled={false} onClick={() => dispatch(deletePhone(code,phone))}>
+            <MyButton disabled={false} onClick={() => dispatch(deletePhone(code, phone))}>
                 Delete
             </MyButton>
         </div>
