@@ -1,19 +1,6 @@
 const { Phones } = require('../models/models');
 const SocketManager = require('../socket');
 
-// const io = SocketManager.io;
-
-
-
-const socket = setTimeout(()=>{
-    return SocketManager.conversation()
-}, 500)
-
-const emitMessage = async (phone) => {
-    const socket = SocketManager.conversation()
-    socket.emit('addPhone', phone)
-}
-
 class PhoneController {
     async getNumbers(req, res) {
         const numbers = await Phones.findAll();
@@ -24,14 +11,13 @@ class PhoneController {
         try {
             const { number, country } = req.body;
             const phone = await Phones.create({ number, country });
-            await emitMessage(phone);
+            SocketManager.addPhone(phone);
 
             return res.status(201).json(phone);
         } catch (e) {
-            // return res
-            //     .status(409)
-            //     .json({ error: 'Phone number already exists' });
-            console.error(e)
+            return res
+                .status(409)
+                .json({ error: 'Phone number already exists' });
         }
     }
 
@@ -45,6 +31,7 @@ class PhoneController {
             });
 
             if (phone) {
+                SocketManager.removePhone(number);
                 return res.status(200).json(number);
             } else {
                 return res

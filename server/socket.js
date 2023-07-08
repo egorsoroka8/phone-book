@@ -2,7 +2,6 @@ const { Server } = require('socket.io');
 
 class SocketManager {
     static io;
-    static socket;
 
     static init(server) {
         SocketManager.io = new Server(server, {
@@ -11,31 +10,16 @@ class SocketManager {
                 methods: ['GET', 'POST'],
             },
         });
-        return SocketManager.io;
     }
 
-    static get() {
-        return SocketManager.io;
+    static addPhone(phone) {
+        SocketManager.io.sockets.emit('addPhone', phone);
+        console.log(`Phone ${phone} has been added to a list`);
     }
-
-    static conversation() {
-        SocketManager.io.on('connection', (socket) => {
-            console.log('A user connected');
-            SocketManager.socket = socket;
-
-            socket.emit('addPhone', (phone) => {
-                console.log(`Phone ${phone} has been added to list`);
-            });
-
-            socket.emit('removePhone', (phone) => {
-                console.log(`Phone ${phone} has been removed from list`);
-            });
-
-            socket.on('disconnect', () => {
-                console.log('A user disconnected');
-            });
-            return SocketManager.socket
-        });
+    
+    static removePhone(phone) {
+        SocketManager.io.sockets.emit('removePhone', phone);
+        console.log(`Phone ${phone} has been removed from a list`);
     }
 }
 
@@ -43,21 +27,4 @@ module.exports = SocketManager;
 
 // 1. написать класс обработчик
 // 2. импортировть его в индекс и в контроллеры
-// 3. сделать обработку в клиенте
-
-// io.on('connection', (socket) => {
-//     console.log('A user connected');
-
-//     // Handle WebSocket messages
-//     socket.on('message', (message) => {
-//         console.log('Message:', message);
-
-//     // Broadcast the message to all connected clients
-//     socket.emit('message', message);
-//     });
-
-//     // Handle WebSocket connection close
-//     socket.on('disconnect', () => {
-//         console.log('A user disconnected');
-//     });
-// });
+// 3. сделать обработку в клиент

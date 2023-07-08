@@ -15,7 +15,7 @@ app.use(express.json());
 app.use('/api', router);
 
 const server = createServer(app);
-const io = SocketManager.init(server);
+SocketManager.init(server);
 
 // io.on('connection', (socket) => {
 //     console.log('A user connected');

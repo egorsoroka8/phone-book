@@ -11,7 +11,6 @@ const deletePhone = (code, phone) => {
                 },
             })
             .then((response) => {
-                console.log(response);
                 dispatch(removePhoneAction(response.data));
             })
             .catch((error) => {
