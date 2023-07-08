@@ -1,10 +1,13 @@
 const { Phones } = require('../models/models');
-const io = require('../index');
+const SocketManager = require('../socket');
 
 
-const emitMessage = async (data) => {
-    io.emit('addPhone', data)
-}
+
+// const io = SocketManager.get();
+
+const io2 = setTimeout(() => {
+    return SocketManager.get();
+}, 1)
 
 
 class PhoneController {
@@ -17,7 +20,7 @@ class PhoneController {
         try {
             const { number, country } = req.body;
             const phone = await Phones.create({ number, country });
-            await emitMessage(phone)
+            await emitMessage(phone);
 
             return res.status(201).json(phone);
         } catch (e) {
