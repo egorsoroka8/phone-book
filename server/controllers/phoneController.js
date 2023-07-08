@@ -1,4 +1,11 @@
 const { Phones } = require('../models/models');
+const io = require('../index');
+
+
+const emitMessage = async (data) => {
+    io.emit('addPhone', data)
+}
+
 
 class PhoneController {
     async getNumbers(req, res) {
@@ -10,11 +17,14 @@ class PhoneController {
         try {
             const { number, country } = req.body;
             const phone = await Phones.create({ number, country });
+            await emitMessage(phone)
+
             return res.status(201).json(phone);
         } catch (e) {
-            return res
-                .status(409)
-                .json({ error: 'Phone number already exist' });
+            // return res
+            //     .status(409)
+            //     .json({ error: 'Phone number already exists' });
+            console.error(e)
         }
     }
 

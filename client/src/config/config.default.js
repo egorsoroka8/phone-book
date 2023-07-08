@@ -1,5 +1,5 @@
 const BASE_URL = 'http://localhost';
-const PORT = ':5050'
+const BASE_PORT = ':5050'
 const API_PATH = '/api';
 
-export { BASE_URL, PORT, API_PATH };
+export { BASE_URL, BASE_PORT, API_PATH };
