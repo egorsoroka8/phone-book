@@ -1,14 +1,18 @@
 const { Phones } = require('../models/models');
 const SocketManager = require('../socket');
 
+// const io = SocketManager.io;
 
 
-// const io = SocketManager.get();
 
-const io2 = setTimeout(() => {
-    return SocketManager.get();
-}, 1)
+const socket = setTimeout(()=>{
+    return SocketManager.conversation()
+}, 500)
 
+const emitMessage = async (phone) => {
+    const socket = SocketManager.conversation()
+    socket.emit('addPhone', phone)
+}
 
 class PhoneController {
     async getNumbers(req, res) {
