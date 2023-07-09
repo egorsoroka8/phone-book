@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { getPhones, addPhone } from '../api/index';
+import countries from '../utils/sortCountries';
 import MySelect from './UI/select/MySelect';
 import MyButton from './UI/button/MyButton';
 import MyInput from './UI/input/MyInput';
-import MyMessage from './UI/message/MyMessage';
 import './styles/App.css';
-import countries from '../utils/sortCountries';
-import { useDispatch } from 'react-redux';
-import { getPhones, addPhone } from '../api/index';
 
 const InputPhoneWrapper = () => {
     const dispatch = useDispatch();
@@ -21,7 +20,7 @@ const InputPhoneWrapper = () => {
 
     useEffect(() => {
         dispatch(getPhones());
-    }, []);
+    });
 
     return (
         <div className='InputWrapper'>
@@ -36,13 +35,11 @@ const InputPhoneWrapper = () => {
                 onChange={handlePhoneChange}
                 value={phone}
             />
-            {/* <MyMessage onChange={message}>{message}</MyMessage> */}
             <MyButton
                 style={{ width: '200px' }}
                 disabled={!isNumberValid}
                 onClick={() => {
-                    dispatch(addPhone(code, phone), 
-                    setPhone(''));
+                    dispatch(addPhone(code, phone), setPhone(''));
                 }}
             >
                 Submit

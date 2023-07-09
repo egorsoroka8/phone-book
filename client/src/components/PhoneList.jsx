@@ -12,7 +12,11 @@ const PhoneList = () => {
             <h4 style={{ marginBottom: 20 }}>{isPhonesAdded}</h4>
 
             {phones.map((phone, index) => (
-                <PhoneItem phone={phone} index={index} />
+                <PhoneItem
+                    key={`phoneIyem-${index}`}
+                    phone={phone}
+                    index={index}
+                />
             ))}
         </div>
     );
