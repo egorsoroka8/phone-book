@@ -1,7 +1,6 @@
 .myButton {
     position: relative;
     display: inline-block;
-    width: 200px;
     padding: 8px;
     font-size: 16px;
     border: 1px solid #ccc;

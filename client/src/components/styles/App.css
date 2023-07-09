@@ -35,7 +35,23 @@
     box-shadow: 0 4px 8px 0 #50578f7a;
   }
   
+  .PhoneItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px 0 #50578f7a;
+  }
 
+  .PhoneItem-left {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-inline: 10px;
+  }
+  
   .PhoneList {
     display: flex;
     flex-direction: column;

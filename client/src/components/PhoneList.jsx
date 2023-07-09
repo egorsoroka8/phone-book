@@ -1,18 +1,18 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import "./styles/App.css";
+import React from 'react';
+import { useSelector } from 'react-redux';
+import './styles/App.css';
+import PhoneItem from './PhoneItem';
 
 const PhoneList = () => {
     const { phones } = useSelector((state) => state);
-    const isPhonesAdded = phones.length ? "Phone list" : "No added phones";
+    const isPhonesAdded = phones.length ? 'Added Phones' : 'No added phones';
 
     return (
-        <div className="PhoneList">
+        <div className='PhoneList'>
             <h4 style={{ marginBottom: 20 }}>{isPhonesAdded}</h4>
+
             {phones.map((phone, index) => (
-                <div key={index}>
-                    {index + 1} {phone}
-                </div>
+                <PhoneItem phone={phone} index={index} />
             ))}
         </div>
     );

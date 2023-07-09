@@ -8,6 +8,7 @@ const MySelect = ({ props, onChange, value }) => {
             className={classes.select}
             onChange={onChange}
             value={value}
+            defaultValue={props[0].phoneCode}
         >
             {props.map((country) =>
                 <option

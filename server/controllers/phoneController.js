@@ -11,7 +11,7 @@ class PhoneController {
         try {
             const { number, country } = req.body;
             const phone = await Phones.create({ number, country });
-            SocketManager.addPhone(phone);
+            SocketManager.addPhone(phone.dataValues.number);
 
             return res.status(201).json(phone);
         } catch (e) {

@@ -7,7 +7,6 @@ const addPhone = (code, phone) => {
         axios
             .post(`${BASE_URL}${BASE_PORT}${API_PATH}/add-phone`, {
                 number: `${code}${phone}`,
-                country: `RU`, // Подумать как прокинуть сюда страну
             })
             .then((response) => dispatch(addPhoneAction(response.data.number)))
             .catch((error) => {
