@@ -1,10 +1,12 @@
-import defaultState from './defaultState';
+const defaultState = {
+    phones: [],
+}
 
 const ADD_PHONE = 'ADD_PHONE';
 const GET_PHONES = 'GET_PHONES';
 const REMOVE_PHONE = 'REMOVE_PHONE';
 
-const reducer = (state = defaultState, action) => {
+export const phoneReducer = (state = defaultState, action) => {
     switch (action.type) {
         case ADD_PHONE:
             return {
@@ -28,8 +30,6 @@ const reducer = (state = defaultState, action) => {
             return state;
     }
 };
-
-export default reducer;
 
 export const addPhoneAction = (payload) => ({ type: ADD_PHONE, payload });
 export const getPhonesAction = (payload) => ({ type: GET_PHONES, payload });

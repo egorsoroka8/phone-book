@@ -4,7 +4,7 @@ import './styles/App.css';
 import PhoneItem from './PhoneItem';
 
 const PhoneList = () => {
-    const { phones } = useSelector((state) => state);
+    const { phones } = useSelector((state) => state.phone);
     const isPhonesAdded = phones.length ? 'Added Phones' : 'No added phones';
 
     return (

@@ -1,4 +1,4 @@
-import { removePhoneAction } from '../store/reducer';
+import { removePhoneAction } from '../store/phoneReducer';
 import axios from 'axios';
 import { BASE_URL, BASE_PORT, API_PATH } from '../config/config.default';
 
