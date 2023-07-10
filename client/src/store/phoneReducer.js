@@ -1,5 +1,5 @@
 const defaultState = {
-    phones: [],
+    numbers: [],
 }
 
 const ADD_PHONE = 'ADD_PHONE';
@@ -11,20 +11,20 @@ export const phoneReducer = (state = defaultState, action) => {
         case ADD_PHONE:
             return {
                 ...state,
-                phones: [...state.phones, action.payload],
+                numbers: [...state.numbers, action.payload],
             };
         case GET_PHONES:
             return {
                 ...state,
-                phones: action.payload,
+                numbers: action.payload,
             };
         case REMOVE_PHONE:
-            const updatedPhones = state.phones.filter(
+            const updatedPhones = state.numbers.filter(
                 (number) => number !== action.payload
             );
             return {
                 ...state,
-                phones: updatedPhones,
+                numbers: updatedPhones,
             };
         default:
             return state;

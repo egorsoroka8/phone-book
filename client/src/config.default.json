@@ -13,5 +13,10 @@
         "countryName": "Turkey",
         "countryFlag": "🇹🇷",
         "phoneCode": "+90"
+    },
+    {
+        "countryName": "India",
+        "countryFlag": "🇮🇳",
+        "phoneCode": "+91"
     }
 ]

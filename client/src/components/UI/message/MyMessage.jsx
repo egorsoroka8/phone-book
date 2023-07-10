@@ -1,20 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 
 const MyMessage = () => {
-
+    const isError = useSelector((state) => state.error.isError);
     const [isVisible, setIsVisible] = useState(false);
-    // Function to handle the action that triggers the visibility of the message
-    const handleAction = () => {
-      // Perform the necessary action
-      // Set the visibility of the message to true
-      setIsVisible(true);
-    };
-    
+
+    useEffect(() => {
+        setIsVisible(isError);
+    }, [isError]);
+
     return (
-        <h6 style={{ visibility: isVisible ? 'visible' : 'hidden' }}>
-            Error
-        </h6>
-    )
-}
+        <h3 style={{ visibility: isVisible ? 'visible' : 'hidden', color: 'red' }}>
+            Phone is already in the list!
+        </h3>
+    );
+};
 
 export default MyMessage;
