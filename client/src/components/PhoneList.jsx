@@ -5,7 +5,7 @@ import PhoneItem from './PhoneItem';
 
 const PhoneList = () => {
     const { numbers } = useSelector((state) => state.contactNumbers);
-    const isPhonesAdded = numbers.length ? 'Added Phones' : 'No added phones';
+    const isPhonesAdded = numbers.length ? 'Added Phones' : 'Phone list is empty!';
 
     return (
         <div className='PhoneList'>
