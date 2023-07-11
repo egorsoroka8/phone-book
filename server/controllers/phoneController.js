@@ -17,7 +17,7 @@ class PhoneController {
         } catch (e) {
             return res
                 .status(409)
-                .json({ error: 'Phone number already exists' });
+                .json({ error: 'Phone is already in the list!' });
         }
     }
 
